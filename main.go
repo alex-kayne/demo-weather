@@ -8,11 +8,13 @@ import (
 func main() {
 	fmt.Println("Weather application started")
 
-	config := cfg.AppConfig()
+	config, err := cfg.NewConfig()
 
-	if config.Error != nil {
-		fmt.Println(config.Error)
+	if err != nil {
+		fmt.Println(err)
 		return
 	}
+
+	fmt.Printf("%+v\n", config)
 
 }
