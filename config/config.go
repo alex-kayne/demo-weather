@@ -20,7 +20,7 @@ func NewConfig() (Config, error) {
 	flag.Parse()
 
 	if !slices.Contains(availableFormats, *format) {
-		return Config{}, errors.New("Формат должен быть в диапазоне от 1 до 4 включительно")
+		return Config{}, errors.New("формат должен быть в диапазоне от 1 до 4 включительно")
 	}
 
 	return Config{City: *city, Format: *format}, nil
