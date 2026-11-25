@@ -14,6 +14,8 @@ func ReadChunks(r io.Reader, chunkSize int) ([]byte, error) {
 	for {
 		n, err := r.Read(buffer)
 
+		result = append(result, buffer[:n]...)
+
 		if errors.Is(err, io.EOF) {
 			break
 		}
@@ -22,7 +24,6 @@ func ReadChunks(r io.Reader, chunkSize int) ([]byte, error) {
 			return nil, err
 		}
 
-		result = append(result, buffer[:n]...)
 	}
 
 	return result, nil

@@ -2,7 +2,9 @@ package main
 
 import (
 	cfg "demo-weather/config"
+	reader2 "demo-weather/reader"
 	"fmt"
+	"strings"
 )
 
 func main() {
@@ -17,4 +19,7 @@ func main() {
 
 	fmt.Printf("%+v\n", config)
 
+	reader := strings.NewReader("Hello World")
+	res, _ := reader2.ReadChunks(reader, 4)
+	fmt.Println(string(res))
 }
