@@ -20,6 +20,12 @@ func main() {
 	fmt.Printf("%+v\n", config)
 
 	reader := strings.NewReader("Hello World")
-	res, _ := reader2.ReadChunks(reader, 4)
+	res, err := reader2.ReadChunks(reader, 4)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
 	fmt.Println(string(res))
 }
